@@ -25,10 +25,9 @@ public class BookManagement {
         catalogList.add(catalog2);
         catalogList.add(catalog3);
 
-
-        Product product1 = new Product("P001","p1",30.0,"mt1",12,catalog1,true);
-        Product product2 = new Product("P002","p2",50.0,"mt2",15,catalog2,true);
-        Product product3 = new Product("P003","p3",10.0,"mt3",18,catalog1,true);
+        Product product1 = new Product("P001","p1",30000.0,"mt1",12,catalog1,true);
+        Product product2 = new Product("P002","p2",50000.0,"mt2",15,catalog2,true);
+        Product product3 = new Product("P003","p3",10000.0,"mt3",18,catalog1,true);
         productList.add(product1);
         productList.add(product2);
         productList.add(product3);

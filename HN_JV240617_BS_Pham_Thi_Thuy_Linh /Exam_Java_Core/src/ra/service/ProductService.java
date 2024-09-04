@@ -128,6 +128,7 @@ public class ProductService implements IGenericService<Product, String>{
            else{
                productS.delete(id);
                showAllProduct();
+               return;
            }
        }while (true);
     }
@@ -143,13 +144,13 @@ public class ProductService implements IGenericService<Product, String>{
                 String finalName = name;
                 if(productList.stream().filter(p -> p.getProductName().contains(finalName)).toList().isEmpty()){
                     System.err.println("No result");
-                    break;
+                    return;
                 }else{
                     System.out.println("Result");
                     String finalName1 = name;
                     productList.stream().filter(p -> p.getProductName().contains(finalName1)).forEach(Product::displayProduct);
                     System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
-                    break;
+                    return;
                     }
                 }
         }while (true);
@@ -168,7 +169,7 @@ public class ProductService implements IGenericService<Product, String>{
                 productOld.setProductId(productOld.getProductId());
                 System.out.println("Product #" + id + " has been updated");
                 showAllProduct();
-                break;
+                return;
             }
         }while (true);
     }
@@ -179,16 +180,16 @@ public class ProductService implements IGenericService<Product, String>{
             if (number.isBlank()) {
                 System.err.println("Data cannot be empty");
             }else {
-                    try{
-                         int numberInt = Integer.parseInt(number);
-                        if(numberInt< 0){
-                            System.err.println("Please enter a positive integer");
-                        }else {
-                            return numberInt;
-                        }
-                    }catch (NumberFormatException e){
+                try{
+                    int numberInt = Integer.parseInt(number);
+                    if(numberInt< 0){
                         System.err.println("Please enter a positive integer");
+                    }else {
+                        return numberInt;
                     }
+                }catch (NumberFormatException e){
+                    System.err.println("Please enter a positive integer");
+                }
             }
         }while (true);
     }

@@ -3,6 +3,7 @@ package ra.model;
 import ra.business.entity.Catalog;
 import ra.service.CatalogService;
 
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 import static ra.run.BookManagement.catalogList;
@@ -196,11 +197,11 @@ public class Product {
         }while(true);
     }
 
-
+    NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
     public void displayProduct(){
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf("| Id: %-5s | Name: %-15s | Price:%10.1f | Description: %-20s | Stock: %-10d | Catalog: %-10s | Status:%-10s |\n",
-                productId, productName,productPrice, description,stock,catalog.getCatalogName(), status?"Bán":"Không bán");
+        System.out.printf("| Id: %-5s | Name: %-15s | Price:%10s | Description: %-20s | Stock: %-10d | Catalog: %-10s | Status:%-10s |\n",
+                productId, productName,currencyFormatter.format(productPrice), description,stock,catalog.getCatalogName(), status?"Bán":"Không bán");
     }
 
     @Override
